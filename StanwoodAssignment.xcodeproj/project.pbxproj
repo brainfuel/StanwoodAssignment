@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C4A42DD0D476CE86DCF22C1 /* Pods_StanwoodAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C4F814FFC0CF14F8DBBADA8 /* Pods_StanwoodAssignment.framework */; };
 		65FB511120E255910012C800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB511020E255910012C800 /* AppDelegate.swift */; };
 		65FB511320E255910012C800 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB511220E255910012C800 /* ViewController.swift */; };
 		65FB511620E255910012C800 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB511420E255910012C800 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C4F814FFC0CF14F8DBBADA8 /* Pods_StanwoodAssignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StanwoodAssignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FAC942DD8B3B15C4637237B /* Pods-StanwoodAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StanwoodAssignment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StanwoodAssignment/Pods-StanwoodAssignment.debug.xcconfig"; sourceTree = "<group>"; };
 		65FB510D20E255910012C800 /* StanwoodAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StanwoodAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FB511020E255910012C800 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65FB511220E255910012C800 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		65FB511720E255920012C800 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65FB511A20E255920012C800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65FB511C20E255920012C800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5A18FE90DE146985291F41E /* Pods-StanwoodAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StanwoodAssignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-StanwoodAssignment/Pods-StanwoodAssignment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C4A42DD0D476CE86DCF22C1 /* Pods_StanwoodAssignment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522ABE5F7525FE68D1BC8B23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0FAC942DD8B3B15C4637237B /* Pods-StanwoodAssignment.debug.xcconfig */,
+				E5A18FE90DE146985291F41E /* Pods-StanwoodAssignment.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		65FB510420E255910012C800 = {
 			isa = PBXGroup;
 			children = (
 				65FB510F20E255910012C800 /* StanwoodAssignment */,
 				65FB510E20E255910012C800 /* Products */,
+				522ABE5F7525FE68D1BC8B23 /* Pods */,
+				6EFB267C7BE87760EBE43AF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = StanwoodAssignment;
 			sourceTree = "<group>";
 		};
+		6EFB267C7BE87760EBE43AF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C4F814FFC0CF14F8DBBADA8 /* Pods_StanwoodAssignment.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65FB511F20E255920012C800 /* Build configuration list for PBXNativeTarget "StanwoodAssignment" */;
 			buildPhases = (
+				6511695477E28623FEFDC494 /* [CP] Check Pods Manifest.lock */,
 				65FB510920E255910012C800 /* Sources */,
 				65FB510A20E255910012C800 /* Frameworks */,
 				65FB510B20E255910012C800 /* Resources */,
+				DA8B6B52090D9DBEBBDE19B8 /* [CP] Embed Pods Frameworks */,
+				CCC92AD9A0C83B32ADA83F88 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6511695477E28623FEFDC494 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StanwoodAssignment-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCC92AD9A0C83B32ADA83F88 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StanwoodAssignment/Pods-StanwoodAssignment-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA8B6B52090D9DBEBBDE19B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StanwoodAssignment/Pods-StanwoodAssignment-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StanwoodAssignment/Pods-StanwoodAssignment-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		65FB510920E255910012C800 /* Sources */ = {
@@ -278,15 +361,13 @@
 		};
 		65FB512020E255920012C800 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FAC942DD8B3B15C4637237B /* Pods-StanwoodAssignment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RGV8YA58;
 				INFOPLIST_FILE = StanwoodAssignment/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xc.StanwoodAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +377,13 @@
 		};
 		65FB512120E255920012C800 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5A18FE90DE146985291F41E /* Pods-StanwoodAssignment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RGV8YA58;
 				INFOPLIST_FILE = StanwoodAssignment/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xc.StanwoodAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
