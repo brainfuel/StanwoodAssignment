@@ -11,6 +11,8 @@ import Alamofire
 
 // MARK: - Retrieve Data
 
+private let endPoint = "https://api.github.com/search/repositories"
+
 class Network{
 
 }
@@ -75,7 +77,7 @@ extension Network{
         
         let parameters: Parameters = ["q": "created:>\(dateString)", "sort" : "stars", "order" : "desc", "page" : String(pageNumber)]
         
-        Alamofire.request("https://api.github.com/search/repositories", parameters: parameters).responseData { response in
+        Alamofire.request(endPoint, parameters: parameters).responseData { response in
             
           ActivityIndicatorManager.endActivity()
             
