@@ -14,6 +14,10 @@
 		650FFC6120E26E8000E942A1 /* UIView+RoundedLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6020E26E8000E942A1 /* UIView+RoundedLines.swift */; };
 		650FFC6320E26EB500E942A1 /* CGFloat+Radius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6220E26EB500E942A1 /* CGFloat+Radius.swift */; };
 		650FFC6520E26F4100E942A1 /* UIColor+CustomColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6420E26F4100E942A1 /* UIColor+CustomColours.swift */; };
+		650FFC6820E278DF00E942A1 /* MainDetailsTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6720E278DF00E942A1 /* MainDetailsTitleCell.swift */; };
+		650FFC6A20E2790B00E942A1 /* MainDetailsDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6920E2790B00E942A1 /* MainDetailsDescriptionCell.swift */; };
+		650FFC6C20E2794900E942A1 /* MainDetailsURLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6B20E2794900E942A1 /* MainDetailsURLCell.swift */; };
+		650FFC6E20E27A0A00E942A1 /* MainDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6D20E27A0A00E942A1 /* MainDetailsCell.swift */; };
 		65FB511120E255910012C800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB511020E255910012C800 /* AppDelegate.swift */; };
 		65FB511320E255910012C800 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB511220E255910012C800 /* ViewController.swift */; };
 		65FB511620E255910012C800 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB511420E255910012C800 /* Main.storyboard */; };
@@ -37,6 +41,10 @@
 		650FFC6020E26E8000E942A1 /* UIView+RoundedLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedLines.swift"; sourceTree = "<group>"; };
 		650FFC6220E26EB500E942A1 /* CGFloat+Radius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Radius.swift"; sourceTree = "<group>"; };
 		650FFC6420E26F4100E942A1 /* UIColor+CustomColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColours.swift"; sourceTree = "<group>"; };
+		650FFC6720E278DF00E942A1 /* MainDetailsTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailsTitleCell.swift; sourceTree = "<group>"; };
+		650FFC6920E2790B00E942A1 /* MainDetailsDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailsDescriptionCell.swift; sourceTree = "<group>"; };
+		650FFC6B20E2794900E942A1 /* MainDetailsURLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailsURLCell.swift; sourceTree = "<group>"; };
+		650FFC6D20E27A0A00E942A1 /* MainDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailsCell.swift; sourceTree = "<group>"; };
 		65FB510D20E255910012C800 /* StanwoodAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StanwoodAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FB511020E255910012C800 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65FB511220E255910012C800 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +115,18 @@
 			path = Web;
 			sourceTree = "<group>";
 		};
+		650FFC6620E2775E00E942A1 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				65FB512420E25BA40012C800 /* MainDetailsTVC.swift */,
+				650FFC6720E278DF00E942A1 /* MainDetailsTitleCell.swift */,
+				650FFC6920E2790B00E942A1 /* MainDetailsDescriptionCell.swift */,
+				650FFC6B20E2794900E942A1 /* MainDetailsURLCell.swift */,
+				650FFC6D20E27A0A00E942A1 /* MainDetailsCell.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		65FB510420E255910012C800 = {
 			isa = PBXGroup;
 			children = (
@@ -131,9 +151,9 @@
 				65FB511020E255910012C800 /* AppDelegate.swift */,
 				65FB511220E255910012C800 /* ViewController.swift */,
 				65FB511420E255910012C800 /* Main.storyboard */,
-				65FB512420E25BA40012C800 /* MainDetailsTVC.swift */,
 				65FB512820E2604F0012C800 /* Network.swift */,
 				650FFC5C20E26A9500E942A1 /* Trending */,
+				650FFC6620E2775E00E942A1 /* Details */,
 				650FFC5D20E26ADB00E942A1 /* Web */,
 				650FFC5920E2685400E942A1 /* Utilities */,
 				65FB511720E255920012C800 /* Assets.xcassets */,
@@ -283,13 +303,17 @@
 			files = (
 				65FB511320E255910012C800 /* ViewController.swift in Sources */,
 				650FFC6120E26E8000E942A1 /* UIView+RoundedLines.swift in Sources */,
+				650FFC6820E278DF00E942A1 /* MainDetailsTitleCell.swift in Sources */,
 				65FB512320E25B5F0012C800 /* MainCVC.swift in Sources */,
 				650FFC5820E2684800E942A1 /* Date+DatePeriods.swift in Sources */,
+				650FFC6E20E27A0A00E942A1 /* MainDetailsCell.swift in Sources */,
+				650FFC6A20E2790B00E942A1 /* MainDetailsDescriptionCell.swift in Sources */,
 				650FFC5B20E2695400E942A1 /* Formatter+iso8601.swift in Sources */,
 				65FB512B20E261890012C800 /* ActivityIndicatorManager.swift in Sources */,
 				650FFC6320E26EB500E942A1 /* CGFloat+Radius.swift in Sources */,
 				650FFC5F20E26DFE00E942A1 /* MainCVCell.swift in Sources */,
 				65FB512920E2604F0012C800 /* Network.swift in Sources */,
+				650FFC6C20E2794900E942A1 /* MainDetailsURLCell.swift in Sources */,
 				650FFC6520E26F4100E942A1 /* UIColor+CustomColours.swift in Sources */,
 				65FB512720E25BC90012C800 /* WebVC.swift in Sources */,
 				65FB511120E255910012C800 /* AppDelegate.swift in Sources */,

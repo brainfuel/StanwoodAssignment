@@ -84,14 +84,14 @@ class MainCVC: UICollectionViewController  {
         cell.avatarImage.roundedLine()
         cell.avatarImage.image = UIImage(named: "avatar")
         
-        /*
+       
         if let avatarURL = repositoryStruct.owner?.avatarURL {
             
             Network.imageFromURLString(avatarURL, imageSize: ImageSize.thumbnail) { (image) in
                 cell.avatarImage.image = image
                 //TODO add a transition here
             }
-        }*/
+        }
         
         cell.repositoryNameLabel.text = repositoryStruct.repoName
         cell.usernameLabel.text = repositoryStruct.owner?.username
@@ -146,7 +146,7 @@ class MainCVC: UICollectionViewController  {
         if(segue.identifier == "MainDetailsTVC"){
             let mainDetailsTVC = segue.destination as! MainDetailsTVC
             
-            //mainDetailsTVC.repository = repositoryStruct
+            mainDetailsTVC.repository = repositoryStruct
         }
         
     }
