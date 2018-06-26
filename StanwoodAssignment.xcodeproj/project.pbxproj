@@ -13,6 +13,9 @@
 		65FB511620E255910012C800 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB511420E255910012C800 /* Main.storyboard */; };
 		65FB511820E255920012C800 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65FB511720E255920012C800 /* Assets.xcassets */; };
 		65FB511B20E255920012C800 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB511920E255920012C800 /* LaunchScreen.storyboard */; };
+		65FB512320E25B5F0012C800 /* MainCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB512220E25B5F0012C800 /* MainCVC.swift */; };
+		65FB512520E25BA40012C800 /* MainDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB512420E25BA40012C800 /* MainDetailsTVC.swift */; };
+		65FB512720E25BC90012C800 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB512620E25BC90012C800 /* WebVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		65FB511720E255920012C800 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65FB511A20E255920012C800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65FB511C20E255920012C800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65FB512220E25B5F0012C800 /* MainCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCVC.swift; sourceTree = "<group>"; };
+		65FB512420E25BA40012C800 /* MainDetailsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailsTVC.swift; sourceTree = "<group>"; };
+		65FB512620E25BC90012C800 /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		E5A18FE90DE146985291F41E /* Pods-StanwoodAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StanwoodAssignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-StanwoodAssignment/Pods-StanwoodAssignment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +79,9 @@
 				65FB511020E255910012C800 /* AppDelegate.swift */,
 				65FB511220E255910012C800 /* ViewController.swift */,
 				65FB511420E255910012C800 /* Main.storyboard */,
+				65FB512220E25B5F0012C800 /* MainCVC.swift */,
+				65FB512420E25BA40012C800 /* MainDetailsTVC.swift */,
+				65FB512620E25BC90012C800 /* WebVC.swift */,
 				65FB511720E255920012C800 /* Assets.xcassets */,
 				65FB511920E255920012C800 /* LaunchScreen.storyboard */,
 				65FB511C20E255920012C800 /* Info.plist */,
@@ -219,7 +228,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				65FB511320E255910012C800 /* ViewController.swift in Sources */,
+				65FB512320E25B5F0012C800 /* MainCVC.swift in Sources */,
+				65FB512720E25BC90012C800 /* WebVC.swift in Sources */,
 				65FB511120E255910012C800 /* AppDelegate.swift in Sources */,
+				65FB512520E25BA40012C800 /* MainDetailsTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +379,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RGV8YA58;
 				INFOPLIST_FILE = StanwoodAssignment/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xc.StanwoodAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -383,7 +398,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RGV8YA58;
 				INFOPLIST_FILE = StanwoodAssignment/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xc.StanwoodAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
