@@ -166,6 +166,15 @@ class MainDetailsTVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
+        if(segue.identifier == "WebVC"){
+            let   webVC = segue.destination as! WebVC
+            
+            if let url = repository?.repositoryURL{
+                webVC.url = url
+                webVC.title = "Repo Viewer"
+            }
+            
+        }
         
     }
 }

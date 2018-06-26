@@ -7,13 +7,29 @@
 //
 
 import UIKit
+import WebKit
 
-class WebVC: UIViewController {
+class WebVC: UIViewController, WKNavigationDelegate {
+    
+    @IBOutlet weak var webView: WKWebView!
+    public var url = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        webView.navigationDelegate = self
+        if let url =  URL(string: url){
+            webView.load(URLRequest(url: url))
+        }
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        ActivityIndicatorManager.endActivity()
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        ActivityIndicatorManager.startActivity()
     }
 
     override func didReceiveMemoryWarning() {
