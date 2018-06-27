@@ -15,7 +15,7 @@ class TrendingCVC: UICollectionViewController  {
     //Set properties for layout
     fileprivate let sectionInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
     fileprivate var itemsPerRow = 1
-    fileprivate let heightPerItem = 143
+    fileprivate let heightPerItem = 144
     fileprivate let minimumWidthPerItem = 300.00
     
     let mainViewModel = TrendingViewModel()
