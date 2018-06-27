@@ -39,6 +39,14 @@ class MainDetailsTVC: UITableViewController {
         return 5
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        guard let repository = repository else {return ""}
+        
+        return repository.repoName
+    }
+    
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
    
@@ -52,10 +60,7 @@ class MainDetailsTVC: UITableViewController {
             let titleCell = tableView.dequeueReusableCell(withIdentifier: "MainDetailsTitleCell", for: indexPath) as! MainDetailsTitleCell
             titleCell.backgroundColor = UIColor.veryLightGrey
             titleCell.avatarImage.roundedLineMedium()
-            titleCell.titleLabel.text = repository.repoName
-            titleCell.titleLabel1.text = "By user:"
-            titleCell.titleLabel2.text = "Stars:"
-            titleCell.titleLabel3.text = "Forks:"
+          
             
             titleCell.detailsLabel1.text = repository.owner?.username
             titleCell.detailsLabel2.text = "☆ \(String(repository.stars ?? 0))"
@@ -75,8 +80,7 @@ class MainDetailsTVC: UITableViewController {
         case 1:
             let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "MainDetailsDescriptionCell", for: indexPath) as! MainDetailsDescriptionCell
             descriptionCell.backgroundColor = UIColor.veryLightGrey
-            descriptionCell.titleLabel.text = "Description:"
-            descriptionCell.descriptionLabel.text = repository.description
+           descriptionCell.descriptionLabel.text = repository.description
             return descriptionCell
             
         case 2:
@@ -84,14 +88,13 @@ class MainDetailsTVC: UITableViewController {
             descriptionCell.backgroundColor = UIColor.veryLightGrey
             descriptionCell.copyButton.roundedLine()
             descriptionCell.viewButton.roundedLine()
-            descriptionCell.titleLabel.text = "Repository URL:"
+            descriptionCell.titleLabel.text = "GitHub URL:"
             descriptionCell.copyButton.addTarget(self, action:#selector(self.copyButtonPressed), for: .touchUpInside)
             
             return descriptionCell
             
             
-            title = "Repository URL:"
-            detail = repository.repositoryURL
+           
         case 3:
             title = "Language:"
             detail = repository.language

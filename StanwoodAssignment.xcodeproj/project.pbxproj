@@ -18,6 +18,13 @@
 		650FFC6A20E2790B00E942A1 /* MainDetailsDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6920E2790B00E942A1 /* MainDetailsDescriptionCell.swift */; };
 		650FFC6C20E2794900E942A1 /* MainDetailsURLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6B20E2794900E942A1 /* MainDetailsURLCell.swift */; };
 		650FFC6E20E27A0A00E942A1 /* MainDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6D20E27A0A00E942A1 /* MainDetailsCell.swift */; };
+		650FFC7220E291D700E942A1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7020E291D700E942A1 /* Model.xcdatamodeld */; };
+		650FFC7420E291F500E942A1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650FFC7320E291F500E942A1 /* CoreData.framework */; };
+		650FFC7620E2928400E942A1 /* ModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7520E2928300E942A1 /* ModelHelper.swift */; };
+		650FFC7820E298A800E942A1 /* RepositoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7720E298A800E942A1 /* RepositoryMapper.swift */; };
+		650FFC7B20E2A74700E942A1 /* starUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 650FFC7920E2A74500E942A1 /* starUp.png */; };
+		650FFC7C20E2A74700E942A1 /* starDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 650FFC7A20E2A74600E942A1 /* starDown.png */; };
+		650FFC7E20E2AFA800E942A1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7D20E2AFA800E942A1 /* Model.swift */; };
 		65FB511120E255910012C800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB511020E255910012C800 /* AppDelegate.swift */; };
 		65FB511320E255910012C800 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB511220E255910012C800 /* ViewController.swift */; };
 		65FB511620E255910012C800 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65FB511420E255910012C800 /* Main.storyboard */; };
@@ -45,6 +52,13 @@
 		650FFC6920E2790B00E942A1 /* MainDetailsDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailsDescriptionCell.swift; sourceTree = "<group>"; };
 		650FFC6B20E2794900E942A1 /* MainDetailsURLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailsURLCell.swift; sourceTree = "<group>"; };
 		650FFC6D20E27A0A00E942A1 /* MainDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailsCell.swift; sourceTree = "<group>"; };
+		650FFC7120E291D700E942A1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		650FFC7320E291F500E942A1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		650FFC7520E2928300E942A1 /* ModelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelHelper.swift; sourceTree = "<group>"; };
+		650FFC7720E298A800E942A1 /* RepositoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMapper.swift; sourceTree = "<group>"; };
+		650FFC7920E2A74500E942A1 /* starUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starUp.png; sourceTree = "<group>"; };
+		650FFC7A20E2A74600E942A1 /* starDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starDown.png; sourceTree = "<group>"; };
+		650FFC7D20E2AFA800E942A1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		65FB510D20E255910012C800 /* StanwoodAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StanwoodAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FB511020E255910012C800 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65FB511220E255910012C800 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650FFC7420E291F500E942A1 /* CoreData.framework in Frameworks */,
 				0C4A42DD0D476CE86DCF22C1 /* Pods_StanwoodAssignment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +167,12 @@
 				65FB511220E255910012C800 /* ViewController.swift */,
 				65FB511420E255910012C800 /* Main.storyboard */,
 				65FB512820E2604F0012C800 /* Network.swift */,
+				650FFC7520E2928300E942A1 /* ModelHelper.swift */,
+				650FFC7D20E2AFA800E942A1 /* Model.swift */,
+				650FFC7A20E2A74600E942A1 /* starDown.png */,
+				650FFC7920E2A74500E942A1 /* starUp.png */,
+				650FFC7720E298A800E942A1 /* RepositoryMapper.swift */,
+				650FFC7020E291D700E942A1 /* Model.xcdatamodeld */,
 				650FFC5C20E26A9500E942A1 /* Trending */,
 				650FFC6620E2775E00E942A1 /* Details */,
 				650FFC5D20E26ADB00E942A1 /* Web */,
@@ -166,6 +187,7 @@
 		6EFB267C7BE87760EBE43AF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				650FFC7320E291F500E942A1 /* CoreData.framework */,
 				0C4F814FFC0CF14F8DBBADA8 /* Pods_StanwoodAssignment.framework */,
 			);
 			name = Frameworks;
@@ -232,6 +254,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650FFC7C20E2A74700E942A1 /* starDown.png in Resources */,
+				650FFC7B20E2A74700E942A1 /* starUp.png in Resources */,
 				65FB511B20E255920012C800 /* LaunchScreen.storyboard in Resources */,
 				65FB511820E255920012C800 /* Assets.xcassets in Resources */,
 				65FB511620E255910012C800 /* Main.storyboard in Resources */,
@@ -283,11 +307,15 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-StanwoodAssignment/Pods-StanwoodAssignment-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -301,17 +329,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650FFC7820E298A800E942A1 /* RepositoryMapper.swift in Sources */,
 				65FB511320E255910012C800 /* ViewController.swift in Sources */,
+				650FFC7620E2928400E942A1 /* ModelHelper.swift in Sources */,
 				650FFC6120E26E8000E942A1 /* UIView+RoundedLines.swift in Sources */,
 				650FFC6820E278DF00E942A1 /* MainDetailsTitleCell.swift in Sources */,
 				65FB512320E25B5F0012C800 /* MainCVC.swift in Sources */,
 				650FFC5820E2684800E942A1 /* Date+DatePeriods.swift in Sources */,
 				650FFC6E20E27A0A00E942A1 /* MainDetailsCell.swift in Sources */,
 				650FFC6A20E2790B00E942A1 /* MainDetailsDescriptionCell.swift in Sources */,
+				650FFC7220E291D700E942A1 /* Model.xcdatamodeld in Sources */,
 				650FFC5B20E2695400E942A1 /* Formatter+iso8601.swift in Sources */,
 				65FB512B20E261890012C800 /* ActivityIndicatorManager.swift in Sources */,
 				650FFC6320E26EB500E942A1 /* CGFloat+Radius.swift in Sources */,
 				650FFC5F20E26DFE00E942A1 /* MainCVCell.swift in Sources */,
+				650FFC7E20E2AFA800E942A1 /* Model.swift in Sources */,
 				65FB512920E2604F0012C800 /* Network.swift in Sources */,
 				650FFC6C20E2794900E942A1 /* MainDetailsURLCell.swift in Sources */,
 				650FFC6520E26F4100E942A1 /* UIColor+CustomColours.swift in Sources */,
@@ -519,6 +551,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		650FFC7020E291D700E942A1 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				650FFC7120E291D700E942A1 /* Model.xcdatamodel */,
+			);
+			currentVersion = 650FFC7120E291D700E942A1 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 65FB510520E255910012C800 /* Project object */;
 }

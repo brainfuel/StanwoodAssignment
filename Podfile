@@ -8,6 +8,6 @@ target 'StanwoodAssignment' do
   # Pods for StanwoodAssignment
   	pod 'Alamofire', '~> 4.7'
 	pod 'AlamofireImage', '~> 3.3'
-	
+	pod 'RealmSwift'
 
 end

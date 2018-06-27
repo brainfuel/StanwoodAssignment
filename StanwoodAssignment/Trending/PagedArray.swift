@@ -24,6 +24,17 @@ struct PagedArray<T>   {
         self.array.append(contentsOf: pageData)
         pageCount += 1
     }
+    
+    /// Remove
+    public mutating func removeRow(row : Int) {
+        self.array.remove(at: row)
+        
+    }
+    
+    public mutating func removeAll(){
+        self.array.removeAll()
+        
+    }
 }
 
 extension PagedArray : Sequence, IteratorProtocol {

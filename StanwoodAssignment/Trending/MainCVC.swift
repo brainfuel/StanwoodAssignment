@@ -27,7 +27,8 @@ class MainCVC: UICollectionViewController  {
         }
         
         mainViewModel.delegate = self
-        mainViewModel.dataForTimePeriod(timePeriod: TimePeriod.month)
+        mainViewModel.dataForTimePeriod(timePeriod: Model.currentlySelectedTimePeriod)
+        
         /*
          let segment: UISegmentedControl = UISegmentedControl(items: ["First", "Second"])
          segment.sizeToFit()
@@ -37,6 +38,33 @@ class MainCVC: UICollectionViewController  {
         // for: UIControlState.Normal)
         
         //self.navigationItem.titleView = segment
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.timePeriodChanged(notification:)), name: Notification.Name("timePeriodChanged"), object: nil)
+       
+    
+    }
+ 
+    
+    @objc func timePeriodChanged(notification: Notification){
+        collectionView?.reloadData()
+        
+        //Scroll to top. Offset hack to stop scrolling past required point
+        let topOffest = CGPoint(x: 0, y: -44)
+        self.collectionView?.setContentOffset(topOffest, animated: false)
+        
+        //If this is the first time this tab has been called, start download
+        if mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod).count == 0{
+        mainViewModel.dataForTimePeriod(timePeriod: Model.currentlySelectedTimePeriod)
+        }
+        
+     
+            navigationController?.popToRootViewController(animated: true)
+      
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         NotificationCenter.default.post(name: Notification.Name("trendingScreenAppeared"), object: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,15 +72,6 @@ class MainCVC: UICollectionViewController  {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     // MARK: UICollectionViewDataSource
     
@@ -64,26 +83,30 @@ class MainCVC: UICollectionViewController  {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        print(mainViewModel.arrayForTimePeriod(TimePeriod.month).count)
-        return mainViewModel.arrayForTimePeriod(TimePeriod.month).count
+       print(mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod).count)
+        
+        return mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod).count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)  as! MainCVCell
         
-        let repositoryArray = mainViewModel.arrayForTimePeriod(TimePeriod.month)
+        let repositoryArray = mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod)
         let repositoryStruct =  repositoryArray[indexPath.row]
         
         
         if(indexPath.row == repositoryArray.count - 1){
-            mainViewModel.dataForTimePeriod(timePeriod: TimePeriod.month)
+            mainViewModel.dataForTimePeriod(timePeriod: Model.currentlySelectedTimePeriod)
         }
         
         cell.roundedLine()
         cell.backgroundColor = UIColor.veryLightGrey
         cell.avatarImage.roundedLine()
         cell.avatarImage.image = UIImage(named: "avatar")
-        
+       cell.delegate = self
+        if let id = repositoryStruct.id{
+            cell.starButton.isSelected = mainViewModel.isFavoritedFromID(id)
+        }
        
         if let avatarURL = repositoryStruct.owner?.avatarURL {
             
@@ -139,9 +162,9 @@ class MainCVC: UICollectionViewController  {
         guard let point = (sender as? UICollectionViewCell)?.center else{return}
         guard let indexPath =   self.collectionView?.indexPathForItem(at: point) else {return}
         
-        let repositoryStruct = mainViewModel.arrayForTimePeriod(TimePeriod.month)[indexPath.row]
+        let repositoryStruct = mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod)[indexPath.row]
         
-        
+         NotificationCenter.default.post(name: Notification.Name("leavingTrendingScreen"), object: self)
         
         if(segue.identifier == "MainDetailsTVC"){
             let mainDetailsTVC = segue.destination as! MainDetailsTVC
@@ -206,5 +229,25 @@ extension MainCVC : MainViewModelProtocol {
         }, completion: nil)
         
     }
+    
+    func removeItemAtIndexPath(_ indexPath : IndexPath ){
+        collectionView?.performBatchUpdates({ () -> Void in
+            self.collectionView?.deleteItems(at: [indexPath])
+            
+            
+        }, completion: nil)
+        
+    }
 }
 
+extension MainCVC  : MainCVCellDelegate  {
+    func didPressStarButton(_ sender: UIButton) {
+        if let indexPath =  collectionView?.indexPathForItem(at: (collectionView?.convert(sender.center, from: sender.superview))!){
+            
+            mainViewModel.starSelectedAtRow(indexPath.row)
+     
+            
+        }
+    }
+    
+}
