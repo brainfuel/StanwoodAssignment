@@ -12,13 +12,14 @@ private let reuseIdentifier = "MainCVCell"
 
 class MainCVC: UICollectionViewController  {
     
+    //Set properties for layout
     fileprivate let sectionInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
     fileprivate var itemsPerRow = 1
     fileprivate let heightPerItem = 143
     fileprivate let minimumWidthPerItem = 300.00
     
     let mainViewModel = MainViewModel()
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,22 +30,8 @@ class MainCVC: UICollectionViewController  {
         mainViewModel.delegate = self
         mainViewModel.dataForTimePeriod(timePeriod: Model.currentlySelectedTimePeriod)
         
-        /*
-         let segment: UISegmentedControl = UISegmentedControl(items: ["First", "Second"])
-         segment.sizeToFit()
-         segment.tintColor = UIColor(red:0.99, green:0.00, blue:0.25, alpha:1.00)
-         segment.selectedSegmentIndex = 0;*/
-        //  segment.setTitleTextAttributes([NSAttributedString(string: "test", attributes: [NSAttributedStringKey.font : UIFont(name: "ProximaNova-Light", size: 15)])!],
-        // for: UIControlState.Normal)
-        
-        //self.navigationItem.titleView = segment
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.timePeriodChanged(notification:)), name: Notification.Name("timePeriodChanged"), object: nil)
-       
-    
     }
- 
     
     @objc func timePeriodChanged(notification: Notification){
         collectionView?.reloadData()
@@ -55,16 +42,15 @@ class MainCVC: UICollectionViewController  {
         
         //If this is the first time this tab has been called, start download
         if mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod).count == 0{
-        mainViewModel.dataForTimePeriod(timePeriod: Model.currentlySelectedTimePeriod)
+            mainViewModel.dataForTimePeriod(timePeriod: Model.currentlySelectedTimePeriod)
         }
         
-     
-            navigationController?.popToRootViewController(animated: true)
-      
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         NotificationCenter.default.post(name: Notification.Name("trendingScreenAppeared"), object: self)
+        //TODO unsafe place to put this notification as could be accidently called by a popup or similar. Remove notification and exchange for alternative event system
+        NotificationCenter.default.post(name: Notification.Name("trendingScreenAppeared"), object: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,18 +58,13 @@ class MainCVC: UICollectionViewController  {
         // Dispose of any resources that can be recreated.
     }
     
-    
     // MARK: UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-       print(mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod).count)
         
         return mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod).count
     }
@@ -94,7 +75,6 @@ class MainCVC: UICollectionViewController  {
         let repositoryArray = mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod)
         let repositoryStruct =  repositoryArray[indexPath.row]
         
-        
         if(indexPath.row == repositoryArray.count - 1){
             mainViewModel.dataForTimePeriod(timePeriod: Model.currentlySelectedTimePeriod)
         }
@@ -103,11 +83,11 @@ class MainCVC: UICollectionViewController  {
         cell.backgroundColor = UIColor.veryLightGrey
         cell.avatarImage.roundedLine()
         cell.avatarImage.image = UIImage(named: "avatar")
-       cell.delegate = self
+        cell.delegate = self
         if let id = repositoryStruct.id{
             cell.starButton.isSelected = mainViewModel.isFavoritedFromID(id)
         }
-       
+        
         if let avatarURL = repositoryStruct.owner?.avatarURL {
             
             Network.imageFromURLString(avatarURL, imageSize: ImageSize.thumbnail) { (image) in
@@ -125,38 +105,6 @@ class MainCVC: UICollectionViewController  {
         return cell
     }
     
-    
-    // MARK: UICollectionViewDelegate
-    
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-     
-     }
-     */
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let point = (sender as? UICollectionViewCell)?.center else{return}
@@ -164,7 +112,7 @@ class MainCVC: UICollectionViewController  {
         
         let repositoryStruct = mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod)[indexPath.row]
         
-         NotificationCenter.default.post(name: Notification.Name("leavingTrendingScreen"), object: self)
+        NotificationCenter.default.post(name: Notification.Name("leavingTrendingScreen"), object: self)
         
         if(segue.identifier == "MainDetailsTVC"){
             let mainDetailsTVC = segue.destination as! MainDetailsTVC
@@ -225,18 +173,13 @@ extension MainCVC : MainViewModelProtocol {
         collectionView?.performBatchUpdates({ () -> Void in
             self.collectionView?.insertItems(at: newIndexPaths)
             
-            
         }, completion: nil)
-        
     }
     
     func removeItemAtIndexPath(_ indexPath : IndexPath ){
         collectionView?.performBatchUpdates({ () -> Void in
             self.collectionView?.deleteItems(at: [indexPath])
-            
-            
         }, completion: nil)
-        
     }
 }
 
@@ -245,9 +188,6 @@ extension MainCVC  : MainCVCellDelegate  {
         if let indexPath =  collectionView?.indexPathForItem(at: (collectionView?.convert(sender.center, from: sender.superview))!){
             
             mainViewModel.starSelectedAtRow(indexPath.row)
-     
-            
         }
     }
-    
 }

@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 var faultsOn = false
+// simple Active Reord style class for Core Data
 //Examples
 /*
  
@@ -30,25 +31,21 @@ var faultsOn = false
  
  BMData.shared.save()
  */
-class ModelHelper: NSObject {
-    
+class CoreRecord: NSObject {
     
     lazy var viewContext:NSManagedObjectContext = {
         return persistentContainer.viewContext
     }()
     
-    
     override init() {
-        // viewContext = persistentContainer.viewContext
+      
     }
     
-    static let shared = ModelHelper()
+    static let shared = CoreRecord()
     var containerName = Bundle.main.infoDictionary?["CFBundleName"] as! String //Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as! String
     
     func setUpWithContainer(name: String){
-      
         containerName = name
-        
     }
     
     lazy  var persistentContainer: NSPersistentContainer = {
@@ -87,23 +84,20 @@ class ModelHelper: NSObject {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+               
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
-    
 }
-
 
 extension NSManagedObject {
     class func create<T: NSManagedObject>() -> T {
         
         let className =   NSStringFromClass(self).components(separatedBy: ".").last!
         
-        return NSEntityDescription.insertNewObject(forEntityName: className, into: ModelHelper.shared.persistentContainer.viewContext) as! T
+        return NSEntityDescription.insertNewObject(forEntityName: className, into: CoreRecord.shared.persistentContainer.viewContext) as! T
     }
     
     class func findAll<T: NSManagedObject>() -> [T] {
@@ -115,7 +109,7 @@ extension NSManagedObject {
         
         var  result = [T]()
         do {
-            result  = try ModelHelper.shared.persistentContainer.viewContext.fetch(fetchRequest) as! [T]
+            result  = try CoreRecord.shared.persistentContainer.viewContext.fetch(fetchRequest) as! [T]
             
         } catch {
             print(error)
@@ -134,7 +128,7 @@ extension NSManagedObject {
         
         var  result = [T]()
         do {
-            result  = try ModelHelper.shared.persistentContainer.viewContext.fetch(fetchRequest) as! [T]
+            result  = try CoreRecord.shared.persistentContainer.viewContext.fetch(fetchRequest) as! [T]
             
         } catch {
             print(error)
@@ -153,7 +147,7 @@ extension NSManagedObject {
         
         var  result = [T]()
         do {
-            result  = try ModelHelper.shared.persistentContainer.viewContext.fetch(fetchRequest) as! [T]
+            result  = try CoreRecord.shared.persistentContainer.viewContext.fetch(fetchRequest) as! [T]
             
         } catch {
             print(error)
@@ -173,7 +167,7 @@ extension NSManagedObject {
         
         var  result = [T]()
         do {
-            result  = try ModelHelper.shared.persistentContainer.viewContext.fetch(fetchRequest) as! [T]
+            result  = try CoreRecord.shared.persistentContainer.viewContext.fetch(fetchRequest) as! [T]
             
         } catch {
             print(error)
@@ -183,7 +177,7 @@ extension NSManagedObject {
     
     func delete() {
         
-        ModelHelper.shared.persistentContainer.viewContext.delete(self)
+        CoreRecord.shared.persistentContainer.viewContext.delete(self)
         
     }
 }

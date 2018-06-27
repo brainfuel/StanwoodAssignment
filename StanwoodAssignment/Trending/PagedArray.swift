@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct PagedArray<T>   {
     
     typealias ArrayType = [T]
@@ -28,12 +27,10 @@ struct PagedArray<T>   {
     /// Remove
     public mutating func removeRow(row : Int) {
         self.array.remove(at: row)
-        
     }
     
     public mutating func removeAll(){
         self.array.removeAll()
-        
     }
 }
 
@@ -46,7 +43,6 @@ extension PagedArray : Sequence, IteratorProtocol {
         
         defer { itemsCount += 1 }
         return array[itemsCount]
-        
     }
 }
 

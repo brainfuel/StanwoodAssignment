@@ -8,9 +8,8 @@
 
 import Foundation
 
-
 class Model {
     
-  static var currentlySelectedTimePeriod : TimePeriod = TimePeriod.month
+    static var currentlySelectedTimePeriod : TimePeriod = TimePeriod.month
 }
 

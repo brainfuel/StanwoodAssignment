@@ -14,7 +14,7 @@ protocol MainCVCellDelegate: class {
 
 class MainCVCell: UICollectionViewCell {
     
-  weak var delegate: MainCVCellDelegate?
+    weak var delegate: MainCVCellDelegate?
     
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var repositoryNameLabel: UILabel!
@@ -23,15 +23,13 @@ class MainCVCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
     
-    
     @IBAction func starButtonPressed(_ sender: UIButton) {
-       
-            if starButton.isSelected == true {
-                starButton.isSelected = false
-            }else {
-                starButton.isSelected = true
-            }
-        delegate?.didPressStarButton(starButton)
         
+        if starButton.isSelected == true {
+            starButton.isSelected = false
+        }else {
+            starButton.isSelected = true
+        }
+        delegate?.didPressStarButton(starButton)
     }
 }

@@ -18,6 +18,7 @@ class Network{
 
 }
 
+//TODO move these structs to the model
 
 struct Items: Codable, Equatable{
     
@@ -65,23 +66,21 @@ struct Owner: Codable  {
         
         case avatarURL = "avatar_url"
         case username = "login"
-        
     }
-    
 }
 
 extension Network{
     
     static public func reposFromDateString (_ dateString: String, pageNumber: Int, completionBlock: @escaping ( (Items?) -> Void) ) {
        ActivityIndicatorManager.startActivity()
-        //TODO parameters and requestURL hard coded,make more generic , move out of block
+        //TODO parameters hard coded,make more generic , move out of block
         
         let parameters: Parameters = ["q": "created:>\(dateString)", "sort" : "stars", "order" : "desc", "page" : String(pageNumber)]
         
         Alamofire.request(endPoint, parameters: parameters).responseData { response in
             
           ActivityIndicatorManager.endActivity()
-            
+            //TODO improve validation
             switch response.result {
             case .success:
                 if let result = response.result.value {
@@ -90,7 +89,6 @@ extension Network{
                 
             case .failure(let error):
                 print(error)
-                
             }
         }
     }
@@ -102,7 +100,7 @@ extension Network{
             gitData = try decoder.decode(Items.self, from: results)
             
         } catch let err {
-            print("Err", err)
+            print("Error", err)
         }
         
         return gitData
@@ -120,9 +118,8 @@ enum ImageSize : String {
 }
 
 extension Network {
-    
+    //TODO AlamofireImage only supports in memory chache. Swwap for SDWebImage
     static let imageCache = AutoPurgingImageCache(memoryCapacity: 100_000_000, preferredMemoryUsageAfterPurge: 60_000_000)
-    
     
     static  public func imageFromURLString (_ imageURLStr: String, imageSize :ImageSize, completionBlock: @escaping ( (UIImage) -> Void) ) {
         ActivityIndicatorManager.startActivity()
@@ -136,7 +133,6 @@ extension Network {
                 DispatchQueue.main.async {
                     completionBlock(cachedImage)
                 }
-                
             }
             
             Alamofire.request(imageURLStr).responseImage { response in
@@ -165,7 +161,6 @@ extension Network {
     static private func cacheImage(_ image : Image, imageID : String){
         
         imageCache.add(image, withIdentifier: imageID)
-        
     }
     
     static private func resizeImage(_ image : Image, imageSize :ImageSize) -> Image{
@@ -191,8 +186,5 @@ extension Network {
     static private func identifierFromURLString(_ imageURLStr: String, imageSize :ImageSize)-> String{
         //Use the hash value as the identifier, along with appended ImageSize
         return String(URL(fileURLWithPath: imageURLStr).hashValue) + imageSize.rawValue
-        
     }
-    
-    
 }

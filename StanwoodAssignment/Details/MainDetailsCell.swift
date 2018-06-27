@@ -13,7 +13,6 @@ class MainDetailsCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,5 +23,4 @@ class MainDetailsCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
 }

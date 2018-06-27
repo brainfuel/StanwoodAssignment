@@ -21,7 +21,6 @@ enum TimePeriod {
     case favorite
 }
 
-
 class MainViewModel{
     
     var monthArray = PagedArray<Repository>()
@@ -49,7 +48,6 @@ class MainViewModel{
         case .favorite:
             return now.pastMonth()?.toStringISO() //Currently unused
         }
-        
     }
     
     private func pagedArrayForTimePeriod(_ timePeriod: TimePeriod) -> PagedArray<Repository>{
@@ -96,14 +94,13 @@ class MainViewModel{
         var dataArray = pagedArrayForTimePeriod(timePeriod)
         
         if timePeriod == TimePeriod.favorite{
-           // Favorites stored locally, no need to request
+            // Favorites stored locally, no need to request
             let fullData = Array(dataArray)
             self.delegate?.didRecievePageData([Repository](), newIndexPaths: [IndexPath](), fullData : fullData )
             return
         }
         
         guard let dateString = dateStringForTimePeriod(timePeriod) else {return}
-        
         
         let pageToGetInt = dataArray.pageCount + 1
         //If we have already obtained all the data for this month no need to fire request
@@ -119,21 +116,16 @@ class MainViewModel{
                 //make the new range of items
                 let range = NSRange(location: dataArray.count, length: items.count - 1)
                 let newIndexPaths = self.indexPathsForRange(range: range)
-               
-              self.addPage(items, for: timePeriod)
-                //dataArray.addPage(items)
-                let fullData = Array(dataArray)
-       
-                if Model.currentlySelectedTimePeriod == timePeriod{
-                self.delegate?.didRecievePageData(items, newIndexPaths: newIndexPaths, fullData : fullData )
-                }
-                print(dataArray.count)
                 
+                self.addPage(items, for: timePeriod)
+                
+                let fullData = Array(dataArray)
+                
+                if Model.currentlySelectedTimePeriod == timePeriod{
+                    self.delegate?.didRecievePageData(items, newIndexPaths: newIndexPaths, fullData : fullData )
+                }
             }
-            
-            
         })
-        
     }
     
     private func indexPathsForRange(range: NSRange)->[IndexPath]{
@@ -145,7 +137,7 @@ class MainViewModel{
         return indexPaths
     }
     
-   private func repositoryForTimePeriod(_ timePeriod: TimePeriod, row : Int)-> Repository{
+    private func repositoryForTimePeriod(_ timePeriod: TimePeriod, row : Int)-> Repository{
         let array = arrayForTimePeriod(timePeriod)
         return array[row]
     }
@@ -164,7 +156,7 @@ class MainViewModel{
     }
     
     private func deleteRepositoryForTimePeriod(_ timePeriod: TimePeriod, row : Int){
-     
+        
         switch timePeriod {
         case .month:
             monthArray.removeRow(row: row)
@@ -175,24 +167,22 @@ class MainViewModel{
         case .favorite:
             favoritesArray.removeRow(row: row)
         }
-   
     }
     
     private func loadFavorites(){
-       
-       let descriptor: NSSortDescriptor = NSSortDescriptor(key: "created", ascending: true)
+        
+        let descriptor: NSSortDescriptor = NSSortDescriptor(key: "created", ascending: false)
         let repositoriesMO =  RepositoryMO.findAllSortedBy([descriptor]) as [RepositoryMO]
-    
+        
         var repositories = [Repository]()
         for repositoryMO in repositoriesMO{
             
-          repositories.append(RepositoryMapper.repositoryFrom(managedObject: repositoryMO))
+            repositories.append(RepositoryMapper.repositoryFrom(managedObject: repositoryMO))
             
         }
         favoritesArray.removeAll()
-         addPage(repositories, for: TimePeriod.favorite)
+        addPage(repositories, for: TimePeriod.favorite)
     }
-    
 }
 
 extension MainViewModel{
@@ -201,32 +191,29 @@ extension MainViewModel{
         //TODO Remove hard coded model from this entire class
         let repository = repositoryForTimePeriod(Model.currentlySelectedTimePeriod, row: row)
         guard let id = repository.id else { return}
-       
-       let foundRepository = repositoryForTimePeriod(TimePeriod.favorite, id: id)
+        
+        let foundRepository = repositoryForTimePeriod(TimePeriod.favorite, id: id)
         
         if(foundRepository == nil){
             //If we never found a repo in favorites with that id, then save
             let repositoryMO =  RepositoryMapper.managedObjectFrom(repository: repository)
             repositoryMO.selected = true
-            ModelHelper.shared.save()
+            CoreRecord.shared.save()
             loadFavorites()
         }else {
-            //Remove
-           //Remove from paged array
+            //Remove from paged array
             if TimePeriod.favorite == Model.currentlySelectedTimePeriod{
-            deleteRepositoryForTimePeriod(Model.currentlySelectedTimePeriod, row: row)
-            //Remove from core data also
-             let predicate = NSPredicate(format: "githubID == %d", id)
-           let repositoryMO = RepositoryMO.findAllWithPredicate(predicate).first
-            repositoryMO?.delete()
-            ModelHelper.shared.save()
-            
-            //Inform delegate of deletion
-             let indexPath = IndexPath(row: row, section: 0)
-            self.delegate?.removeItemAtIndexPath(indexPath)
+                deleteRepositoryForTimePeriod(Model.currentlySelectedTimePeriod, row: row)
+                //Remove from core data also
+                let predicate = NSPredicate(format: "githubID == %d", id)
+                let repositoryMO = RepositoryMO.findAllWithPredicate(predicate).first
+                repositoryMO?.delete()
+                CoreRecord.shared.save()
+                
+                //Inform delegate of deletion
+                let indexPath = IndexPath(row: row, section: 0)
+                self.delegate?.removeItemAtIndexPath(indexPath)
             }
         }
-    
-        
     }
 }

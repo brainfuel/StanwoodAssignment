@@ -29,7 +29,6 @@ class RepositoryMapper {
     
     static func managedObjectFrom(repository : Repository) -> RepositoryMO{
         
-        
         let repositoryMO: RepositoryMO  = RepositoryMO.create()
         repositoryMO.repoName = repository.repoName
         repositoryMO.desc = repository.description

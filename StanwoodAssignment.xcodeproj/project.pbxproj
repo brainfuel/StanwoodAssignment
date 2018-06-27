@@ -20,7 +20,7 @@
 		650FFC6E20E27A0A00E942A1 /* MainDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC6D20E27A0A00E942A1 /* MainDetailsCell.swift */; };
 		650FFC7220E291D700E942A1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7020E291D700E942A1 /* Model.xcdatamodeld */; };
 		650FFC7420E291F500E942A1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650FFC7320E291F500E942A1 /* CoreData.framework */; };
-		650FFC7620E2928400E942A1 /* ModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7520E2928300E942A1 /* ModelHelper.swift */; };
+		650FFC7620E2928400E942A1 /* CoreRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7520E2928300E942A1 /* CoreRecord.swift */; };
 		650FFC7820E298A800E942A1 /* RepositoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7720E298A800E942A1 /* RepositoryMapper.swift */; };
 		650FFC7B20E2A74700E942A1 /* starUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 650FFC7920E2A74500E942A1 /* starUp.png */; };
 		650FFC7C20E2A74700E942A1 /* starDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 650FFC7A20E2A74600E942A1 /* starDown.png */; };
@@ -54,7 +54,7 @@
 		650FFC6D20E27A0A00E942A1 /* MainDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailsCell.swift; sourceTree = "<group>"; };
 		650FFC7120E291D700E942A1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		650FFC7320E291F500E942A1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		650FFC7520E2928300E942A1 /* ModelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelHelper.swift; sourceTree = "<group>"; };
+		650FFC7520E2928300E942A1 /* CoreRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreRecord.swift; sourceTree = "<group>"; };
 		650FFC7720E298A800E942A1 /* RepositoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMapper.swift; sourceTree = "<group>"; };
 		650FFC7920E2A74500E942A1 /* starUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starUp.png; sourceTree = "<group>"; };
 		650FFC7A20E2A74600E942A1 /* starDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starDown.png; sourceTree = "<group>"; };
@@ -142,6 +142,17 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		65BC09CC20E32F16003F8F8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				650FFC7520E2928300E942A1 /* CoreRecord.swift */,
+				650FFC7D20E2AFA800E942A1 /* Model.swift */,
+				650FFC7720E298A800E942A1 /* RepositoryMapper.swift */,
+				650FFC7020E291D700E942A1 /* Model.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		65FB510420E255910012C800 = {
 			isa = PBXGroup;
 			children = (
@@ -167,12 +178,9 @@
 				65FB511220E255910012C800 /* ViewController.swift */,
 				65FB511420E255910012C800 /* Main.storyboard */,
 				65FB512820E2604F0012C800 /* Network.swift */,
-				650FFC7520E2928300E942A1 /* ModelHelper.swift */,
-				650FFC7D20E2AFA800E942A1 /* Model.swift */,
+				65BC09CC20E32F16003F8F8D /* Model */,
 				650FFC7A20E2A74600E942A1 /* starDown.png */,
 				650FFC7920E2A74500E942A1 /* starUp.png */,
-				650FFC7720E298A800E942A1 /* RepositoryMapper.swift */,
-				650FFC7020E291D700E942A1 /* Model.xcdatamodeld */,
 				650FFC5C20E26A9500E942A1 /* Trending */,
 				650FFC6620E2775E00E942A1 /* Details */,
 				650FFC5D20E26ADB00E942A1 /* Web */,
@@ -331,7 +339,7 @@
 			files = (
 				650FFC7820E298A800E942A1 /* RepositoryMapper.swift in Sources */,
 				65FB511320E255910012C800 /* ViewController.swift in Sources */,
-				650FFC7620E2928400E942A1 /* ModelHelper.swift in Sources */,
+				650FFC7620E2928400E942A1 /* CoreRecord.swift in Sources */,
 				650FFC6120E26E8000E942A1 /* UIView+RoundedLines.swift in Sources */,
 				650FFC6820E278DF00E942A1 /* MainDetailsTitleCell.swift in Sources */,
 				65FB512320E25B5F0012C800 /* MainCVC.swift in Sources */,
