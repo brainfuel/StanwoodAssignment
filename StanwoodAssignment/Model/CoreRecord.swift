@@ -13,7 +13,7 @@ var faultsOn = false
 
 /**
 Simple Active Record style class for Core Data
-Also removes Core Data set up from AppDelegate
+Also Removes Core Data set up from AppDelegate
  
  Example use...
  

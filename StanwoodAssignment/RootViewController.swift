@@ -7,7 +7,7 @@
 //
 
 /**
-Controls the state of TabBar. Notifies of changes
+ Controls the state of TabBar. Notifies of changes
  */
 
 import UIKit
@@ -29,18 +29,18 @@ class RootViewController:UIViewController, UITabBarDelegate{
         NotificationCenter.default.addObserver(self, selector: #selector(self.trendingScreenAppeared(notification:)), name: Notification.Name("trendingScreenAppeared"), object: nil)
     }
     
-    @objc func leavingTrendingScreen(notification: Notification){
+     @objc func leavingTrendingScreen(notification: Notification){
         tabBar.selectedItem = nil
         if let tag = tabBar.selectedItem?.tag{
             selectedItem = tag
         }
     }
     
-    @objc func trendingScreenAppeared(notification: Notification){
+     @objc func trendingScreenAppeared(notification: Notification){
         tabBar.selectedItem = tabBar.items![selectedItem] as UITabBarItem;
     }
     
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
         switch (item.tag)
         {
