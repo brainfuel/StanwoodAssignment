@@ -22,8 +22,6 @@
 		650FFC7420E291F500E942A1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650FFC7320E291F500E942A1 /* CoreData.framework */; };
 		650FFC7620E2928400E942A1 /* CoreRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7520E2928300E942A1 /* CoreRecord.swift */; };
 		650FFC7820E298A800E942A1 /* RepositoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7720E298A800E942A1 /* RepositoryMapper.swift */; };
-		650FFC7B20E2A74700E942A1 /* starUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 650FFC7920E2A74500E942A1 /* starUp.png */; };
-		650FFC7C20E2A74700E942A1 /* starDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 650FFC7A20E2A74600E942A1 /* starDown.png */; };
 		650FFC7E20E2AFA800E942A1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FFC7D20E2AFA800E942A1 /* Model.swift */; };
 		65FB511120E255910012C800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB511020E255910012C800 /* AppDelegate.swift */; };
 		65FB511320E255910012C800 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB511220E255910012C800 /* RootViewController.swift */; };
@@ -56,8 +54,6 @@
 		650FFC7320E291F500E942A1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		650FFC7520E2928300E942A1 /* CoreRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreRecord.swift; sourceTree = "<group>"; };
 		650FFC7720E298A800E942A1 /* RepositoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMapper.swift; sourceTree = "<group>"; };
-		650FFC7920E2A74500E942A1 /* starUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starUp.png; sourceTree = "<group>"; };
-		650FFC7A20E2A74600E942A1 /* starDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starDown.png; sourceTree = "<group>"; };
 		650FFC7D20E2AFA800E942A1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		65FB510D20E255910012C800 /* StanwoodAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StanwoodAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FB511020E255910012C800 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -179,8 +175,6 @@
 				65FB511420E255910012C800 /* Main.storyboard */,
 				65FB512820E2604F0012C800 /* Network.swift */,
 				65BC09CC20E32F16003F8F8D /* Model */,
-				650FFC7A20E2A74600E942A1 /* starDown.png */,
-				650FFC7920E2A74500E942A1 /* starUp.png */,
 				650FFC5C20E26A9500E942A1 /* Trending */,
 				650FFC6620E2775E00E942A1 /* Details */,
 				650FFC5D20E26ADB00E942A1 /* Web */,
@@ -262,8 +256,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				650FFC7C20E2A74700E942A1 /* starDown.png in Resources */,
-				650FFC7B20E2A74700E942A1 /* starUp.png in Resources */,
 				65FB511B20E255920012C800 /* LaunchScreen.storyboard in Resources */,
 				65FB511820E255920012C800 /* Assets.xcassets in Resources */,
 				65FB511620E255910012C800 /* Main.storyboard in Resources */,
@@ -503,7 +495,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RGV8YA58;
 				INFOPLIST_FILE = StanwoodAssignment/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xc.StanwoodAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -519,7 +514,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RGV8YA58;
 				INFOPLIST_FILE = StanwoodAssignment/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xc.StanwoodAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
