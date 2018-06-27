@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainDetailsTVC: UITableViewController {
+class DetailsTVC: UITableViewController {
     
     var repository: Repository?
     
@@ -52,7 +52,7 @@ class MainDetailsTVC: UITableViewController {
         
         switch indexPath.row {
         case 0:
-            let titleCell = tableView.dequeueReusableCell(withIdentifier: "MainDetailsTitleCell", for: indexPath) as! MainDetailsTitleCell
+            let titleCell = tableView.dequeueReusableCell(withIdentifier: "DetailsTitleCell", for: indexPath) as! DetailsTitleCell
             titleCell.backgroundColor = UIColor.veryLightGrey
             titleCell.avatarImage.roundedLineMedium()
             
@@ -71,13 +71,13 @@ class MainDetailsTVC: UITableViewController {
             return titleCell
             
         case 1:
-            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "MainDetailsDescriptionCell", for: indexPath) as! MainDetailsDescriptionCell
+            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "DetailsDescriptionCell", for: indexPath) as! DetailsDescriptionCell
             descriptionCell.backgroundColor = UIColor.veryLightGrey
             descriptionCell.descriptionLabel.text = repository.description
             return descriptionCell
             
         case 2:
-            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "MainDetailsURLCell", for: indexPath) as! MainDetailsURLCell
+            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "DetailsURLCell", for: indexPath) as! DetailsURLCell
             descriptionCell.backgroundColor = UIColor.veryLightGrey
             descriptionCell.copyButton.roundedLine()
             descriptionCell.viewButton.roundedLine()
@@ -98,7 +98,7 @@ class MainDetailsTVC: UITableViewController {
             detail = ""
         }
         
-        let standarCell = tableView.dequeueReusableCell(withIdentifier: "MainDetailsCell", for: indexPath) as! MainDetailsCell
+        let standarCell = tableView.dequeueReusableCell(withIdentifier: "DetailsCell", for: indexPath) as! DetailsCell
         standarCell.backgroundColor = UIColor.veryLightGrey
         standarCell.titleLabel.text = title
         standarCell.detailLabel.text = detail

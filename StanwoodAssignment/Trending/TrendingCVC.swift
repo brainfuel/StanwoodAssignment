@@ -8,9 +8,9 @@
 
 import UIKit
 
-private let reuseIdentifier = "MainCVCell"
+private let reuseIdentifier = "TrendingCVCell"
 
-class MainCVC: UICollectionViewController  {
+class TrendingCVC: UICollectionViewController  {
     
     //Set properties for layout
     fileprivate let sectionInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
@@ -18,7 +18,7 @@ class MainCVC: UICollectionViewController  {
     fileprivate let heightPerItem = 143
     fileprivate let minimumWidthPerItem = 300.00
     
-    let mainViewModel = MainViewModel()
+    let mainViewModel = TrendingViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +70,7 @@ class MainCVC: UICollectionViewController  {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)  as! MainCVCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)  as! TrendingCVCell
         
         let repositoryArray = mainViewModel.arrayForTimePeriod(Model.currentlySelectedTimePeriod)
         let repositoryStruct =  repositoryArray[indexPath.row]
@@ -115,7 +115,7 @@ class MainCVC: UICollectionViewController  {
         NotificationCenter.default.post(name: Notification.Name("leavingTrendingScreen"), object: self)
         
         if(segue.identifier == "MainDetailsTVC"){
-            let mainDetailsTVC = segue.destination as! MainDetailsTVC
+            let mainDetailsTVC = segue.destination as! DetailsTVC
             
             mainDetailsTVC.repository = repositoryStruct
         }
@@ -124,7 +124,7 @@ class MainCVC: UICollectionViewController  {
 }
 
 // MARK: - Layout
-extension MainCVC : UICollectionViewDelegateFlowLayout {
+extension TrendingCVC : UICollectionViewDelegateFlowLayout {
     
     //Resize collection view on rotate
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -167,7 +167,7 @@ extension MainCVC : UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - Paging
-extension MainCVC : MainViewModelProtocol {
+extension TrendingCVC : TrendingViewModelProtocol {
     func didRecievePageData(_ pageData: [Repository],newIndexPaths : [IndexPath], fullData: [Repository]) {
         
         collectionView?.performBatchUpdates({ () -> Void in
@@ -183,7 +183,7 @@ extension MainCVC : MainViewModelProtocol {
     }
 }
 
-extension MainCVC  : MainCVCellDelegate  {
+extension TrendingCVC  : TrendingCVCellDelegate  {
     func didPressStarButton(_ sender: UIButton) {
         if let indexPath =  collectionView?.indexPathForItem(at: (collectionView?.convert(sender.center, from: sender.superview))!){
             

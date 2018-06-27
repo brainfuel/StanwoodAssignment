@@ -13,5 +13,4 @@ extension  CGFloat {
     public static let largeRadius: CGFloat = 20
     public static let mediumRadius: CGFloat = 10
     public static let smallRadius: CGFloat = 5
-    
 }

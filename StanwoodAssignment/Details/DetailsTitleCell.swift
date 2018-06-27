@@ -1,5 +1,5 @@
 //
-//  MainDetailsDescriptionCell.swift
+//  MainDetailsTitleCell.swift
 //  StanwoodAssignment
 //
 //  Created by Ben Milford on 26/06/2018.
@@ -8,11 +8,17 @@
 
 import UIKit
 
-class MainDetailsDescriptionCell: UITableViewCell {
+class DetailsTitleCell: UITableViewCell {
     
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
+    @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel1: UILabel!
+    @IBOutlet weak var titleLabel2: UILabel!
+    @IBOutlet weak var titleLabel3: UILabel!
+    @IBOutlet weak var detailsLabel1: UILabel!
+    @IBOutlet weak var detailsLabel2: UILabel!
+    @IBOutlet weak var detailsLabel3: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,4 +29,5 @@ class MainDetailsDescriptionCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
 }

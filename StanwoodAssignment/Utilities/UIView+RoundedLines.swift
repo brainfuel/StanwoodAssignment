@@ -16,7 +16,6 @@ extension UIView {
         layer?.cornerRadius = CGFloat.smallRadius
         layer?.borderColor = UIColor.border.cgColor
         layer?.borderWidth = 1.0
-        
     }
     
     func roundedLineMedium() {
@@ -25,7 +24,6 @@ extension UIView {
         layer?.cornerRadius = CGFloat.mediumRadius
         layer?.borderColor = UIColor.border.cgColor
         layer?.borderWidth = 1.0
-        
     }
     
     func roundedLineLarge() {
@@ -34,7 +32,5 @@ extension UIView {
         layer?.cornerRadius = CGFloat.largeRadius
         layer?.borderColor = UIColor.border.cgColor
         layer?.borderWidth = 1.0
-        
     }
-    
 }

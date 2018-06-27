@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainDetailsURLCell: UITableViewCell {
+class DetailsURLCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var copyButton: UIButton!

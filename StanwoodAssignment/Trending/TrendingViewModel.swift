@@ -9,7 +9,7 @@
 import Foundation
 
 //Have to add 'anyObject' else can't set as weak delegate reference
-protocol MainViewModelProtocol : AnyObject {
+protocol TrendingViewModelProtocol : AnyObject {
     func didRecievePageData(_ pageData : [Repository], newIndexPaths : [IndexPath], fullData : [Repository])
     func removeItemAtIndexPath(_ indexPath : IndexPath )
 }
@@ -21,14 +21,14 @@ enum TimePeriod {
     case favorite
 }
 
-class MainViewModel{
+class TrendingViewModel{
     
     var monthArray = PagedArray<Repository>()
     var weekArray = PagedArray<Repository>()
     var dayArray = PagedArray<Repository>()
     var favoritesArray = PagedArray<Repository>()
     
-    weak var delegate: MainViewModelProtocol?
+    weak var delegate: TrendingViewModelProtocol?
     
     init() {
         loadFavorites()
@@ -185,7 +185,7 @@ class MainViewModel{
     }
 }
 
-extension MainViewModel{
+extension TrendingViewModel{
     
     func  starSelectedAtRow(_ row : Int){
         //TODO Remove hard coded model from this entire class

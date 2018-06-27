@@ -1,5 +1,5 @@
 //
-//  MainDetailsCell.swift
+//  MainDetailsDescriptionCell.swift
 //  StanwoodAssignment
 //
 //  Created by Ben Milford on 26/06/2018.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MainDetailsCell: UITableViewCell {
+class DetailsDescriptionCell: UITableViewCell {
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ViewController:UIViewController, UITabBarDelegate{
+class RootViewController:UIViewController, UITabBarDelegate{
     
     @IBOutlet weak var tabBar: UITabBar!
     private var selectedItem = 0

@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol MainCVCellDelegate: class {
+protocol TrendingCVCellDelegate: class {
     func didPressStarButton(_ sender: UIButton)
 }
 
-class MainCVCell: UICollectionViewCell {
+class TrendingCVCell: UICollectionViewCell {
     
-    weak var delegate: MainCVCellDelegate?
+    weak var delegate: TrendingCVCellDelegate?
     
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var repositoryNameLabel: UILabel!

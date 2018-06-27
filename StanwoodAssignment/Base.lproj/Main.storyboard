@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="yDc-Ll-7nq">
             <objects>
-                <viewController id="auV-ct-0Oq" customClass="ViewController" customModule="StanwoodAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="auV-ct-0Oq" customClass="RootViewController" customModule="StanwoodAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="J6l-px-hay">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +77,7 @@
         <!--Trending-->
         <scene sceneID="U97-Eg-vQ8">
             <objects>
-                <collectionViewController id="mM9-K0-ydf" customClass="MainCVC" customModule="StanwoodAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="mM9-K0-ydf" customClass="TrendingCVC" customModule="StanwoodAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="Wxw-nn-2Pa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,7 +89,7 @@
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="MainCVCell" id="yNq-hT-2xh" customClass="MainCVCell" customModule="StanwoodAssignment" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="TrendingCVCell" id="yNq-hT-2xh" customClass="TrendingCVCell" customModule="StanwoodAssignment" customModuleProvider="target">
                                 <rect key="frame" x="8" y="5" width="359" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -185,16 +185,16 @@
             </objects>
             <point key="canvasLocation" x="1677.5999999999999" y="117.39130434782609"/>
         </scene>
-        <!--Main DetailsTVC-->
+        <!--DetailsTVC-->
         <scene sceneID="5d8-l0-Yf3">
             <objects>
-                <tableViewController id="5h3-TQ-4pK" customClass="MainDetailsTVC" customModule="StanwoodAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="5h3-TQ-4pK" customClass="DetailsTVC" customModule="StanwoodAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ysE-px-ZIW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainDetailsTitleCell" rowHeight="186" id="jVQ-YJ-Gkd" customClass="MainDetailsTitleCell" customModule="StanwoodAssignment" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailsTitleCell" rowHeight="186" id="jVQ-YJ-Gkd" customClass="DetailsTitleCell" customModule="StanwoodAssignment" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="186"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jVQ-YJ-Gkd" id="tcD-0M-Xcg">
@@ -249,7 +249,7 @@
                                     <outlet property="detailsLabel3" destination="tst-oq-Iq4" id="JrI-9v-nt0"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainDetailsDescriptionCell" rowHeight="44" id="N19-pt-Eji" customClass="MainDetailsDescriptionCell" customModule="StanwoodAssignment" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailsDescriptionCell" rowHeight="44" id="N19-pt-Eji" customClass="DetailsDescriptionCell" customModule="StanwoodAssignment" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="214" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N19-pt-Eji" id="P5N-oC-uxg">
@@ -274,7 +274,7 @@
                                     <outlet property="descriptionLabel" destination="wDn-h1-UKn" id="Tk1-lr-Vw7"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainDetailsCell" id="uzT-jd-Sy6" customClass="MainDetailsCell" customModule="StanwoodAssignment" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailsCell" id="uzT-jd-Sy6" customClass="DetailsCell" customModule="StanwoodAssignment" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="258" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uzT-jd-Sy6" id="Q64-5G-0Cz">
@@ -307,7 +307,7 @@
                                     <outlet property="titleLabel" destination="pYS-mM-G6E" id="Siy-76-dVe"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainDetailsURLCell" id="3r5-BR-5KU" customClass="MainDetailsURLCell" customModule="StanwoodAssignment" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailsURLCell" id="3r5-BR-5KU" customClass="DetailsURLCell" customModule="StanwoodAssignment" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="302" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3r5-BR-5KU" id="w2J-Rz-ftZ">
