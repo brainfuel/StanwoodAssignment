@@ -6,8 +6,12 @@
 //  Copyright © 2018 Ben Milford. All rights reserved.
 //
 
+/**
+ A custom array which keeps track of it's page number
+ */
 import Foundation
 
+//TODO I think scrapping this class and wrapping in an Object would be a better idea in hindsight
 struct PagedArray<T>   {
     
     typealias ArrayType = [T]

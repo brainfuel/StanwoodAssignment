@@ -9,6 +9,10 @@
 import UIKit
 import WebKit
 
+/**
+    Displays an embedded WKWebView passsed in before viewDidLoad
+ */
+
 class WebVC: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var webView: WKWebView!

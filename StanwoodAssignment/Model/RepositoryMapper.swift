@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ Converts Repository struct to and from and Core Data compatible Repository Managed Object
+ */
+
 class RepositoryMapper {
     
     static func repositoryFrom(managedObject : RepositoryMO) -> Repository{

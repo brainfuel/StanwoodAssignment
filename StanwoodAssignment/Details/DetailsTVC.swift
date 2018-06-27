@@ -6,6 +6,12 @@
 //  Copyright © 2018 Ben Milford. All rights reserved.
 //
 
+
+/**
+ Details TableViewController
+ Data is passed by TrendingCVC in prepareForSegue
+ */
+
 import UIKit
 
 class DetailsTVC: UITableViewController {

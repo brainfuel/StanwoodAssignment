@@ -6,6 +6,12 @@
 //  Copyright © 2018 Ben Milford. All rights reserved.
 //
 
+/**
+ Trending CollectionViewController
+ Utilises UICollectionViewDelegateFlowLayout to tailor layout for different devices
+ */
+
+
 import UIKit
 
 private let reuseIdentifier = "TrendingCVCell"
@@ -49,13 +55,13 @@ class TrendingCVC: UICollectionViewController  {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //TODO unsafe place to put this notification as could be accidently called by a popup or similar. Remove notification and exchange for alternative event system
+        //TODO unsafe place to put this notification as could be accidently called by a modal or similar. Remove notification and exchange for alternative event system
         NotificationCenter.default.post(name: Notification.Name("trendingScreenAppeared"), object: self)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     // MARK: UICollectionViewDataSource
@@ -100,7 +106,7 @@ class TrendingCVC: UICollectionViewController  {
         cell.usernameLabel.text = repositoryStruct.owner?.username
         cell.startsLabel.text = "☆ \(String(repositoryStruct.stars ?? 0))"
         cell.descriptionLabel.text = repositoryStruct.description
-        // Configure the cell
+       
         
         return cell
     }

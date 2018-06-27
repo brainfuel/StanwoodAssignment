@@ -8,12 +8,18 @@
 
 import Foundation
 
+/**
+ Takes care off all data related logic for TrendingCVC ( and subsequently DetailsTVC)
+ */
+
 //Have to add 'anyObject' else can't set as weak delegate reference
+/// Primary data source for collectionView
 protocol TrendingViewModelProtocol : AnyObject {
     func didRecievePageData(_ pageData : [Repository], newIndexPaths : [IndexPath], fullData : [Repository])
     func removeItemAtIndexPath(_ indexPath : IndexPath )
 }
 
+/// Used throughout to select the correct data array for the tabs
 enum TimePeriod {
     case month
     case week
@@ -23,6 +29,7 @@ enum TimePeriod {
 
 class TrendingViewModel{
     
+    //Create the 4 arrays that correspond to the different tabs
     var monthArray = PagedArray<Repository>()
     var weekArray = PagedArray<Repository>()
     var dayArray = PagedArray<Repository>()
@@ -184,7 +191,7 @@ class TrendingViewModel{
         addPage(repositories, for: TimePeriod.favorite)
     }
 }
-
+/// Primary data source for collectionView
 extension TrendingViewModel{
     
     func  starSelectedAtRow(_ row : Int){

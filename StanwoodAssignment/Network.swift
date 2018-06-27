@@ -10,6 +10,11 @@ import Foundation
 import Alamofire
 import AlamofireImage
 
+/**
+Handles requests using Alamofire for JSON and Images
+*/
+
+
 // MARK: - Retrieve Data
 
 private let endPoint = "https://api.github.com/search/repositories"

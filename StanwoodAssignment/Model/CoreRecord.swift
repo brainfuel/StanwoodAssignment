@@ -10,9 +10,12 @@ import UIKit
 import CoreData
 
 var faultsOn = false
-// simple Active Reord style class for Core Data
-//Examples
-/*
+
+/**
+Simple Active Record style class for Core Data
+Also removes Core Data set up from AppDelegate
+ 
+ Example use...
  
  let test: Button  = Button.create()
  test.name = "dd"
@@ -29,8 +32,9 @@ var faultsOn = false
  let descriptor: NSSortDescriptor = NSSortDescriptor(key: "sortValue", ascending: true)
  faderDataArray = Fader.findAllSortedBy([descriptor]) as [Fader]
  
- BMData.shared.save()
- */
+ CoreRecord.shared.save()
+*/
+
 class CoreRecord: NSObject {
     
     lazy var viewContext:NSManagedObjectContext = {

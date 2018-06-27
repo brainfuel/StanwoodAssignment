@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+Not a lot here. TrendingViewModel and CoreRecord does most of the heavy lifting
+ */
+
 class Model {
     
     static var currentlySelectedTimePeriod : TimePeriod = TimePeriod.month

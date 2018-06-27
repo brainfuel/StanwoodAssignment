@@ -9,6 +9,11 @@
 import UIKit
 import Foundation
 
+/**
+AlamoFire automatic activity indicator didn't seem to work with images extension so had to create this as a basic alternative.
+ Works similar to memory management with a counter that turns it off when it reaches zero
+ */
+
 class ActivityIndicatorManager{
     
     static private var activityCount = 0

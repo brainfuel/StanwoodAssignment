@@ -6,8 +6,12 @@
 //  Copyright © 2018 Ben Milford. All rights reserved.
 //
 
+/**
+Controls the state of TabBar. Notifies of changes
+ */
 
 import UIKit
+
 
 class RootViewController:UIViewController, UITabBarDelegate{
     
